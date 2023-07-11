@@ -1,0 +1,56 @@
+====================================================
+ _   __                      _        
+| | / /                     | |       
+| |/ /  __ _ _ __ __ _  ___ | | _____ 
+|    \ / _` | '__/ _` |/ _ \| |/ / _ \
+| |\  \ (_| | | | (_| | (_) |   <  __/
+\_| \_/\__,_|_|  \__,_|\___/|_|\_\___|
+===================================================
+Herzlich Willkommen im Karaoke-Management-System.
+
+Um das richtige Webseiten-Layout zu starten, führe folgenden Befehl aus:
+animaco | chisaii | ohana | liubice | kiai | nipponcon | default
+
+Um die maximale Wunsch-Anzahl an Songs pro Endgerät einzustellen nutze:
+einsong | zweisongs | dreisongs
+
+Das Karaoke-System startet automatisch.
+Alle Wünsche und Einstellungen bleiben erhalten, auch beim Systemneustart
+Sollte sich das System aus unbestimmten Gründen aufhängen: 
+-> systemctl stop karaoke
+-> systemctl start karaoke
+
+Um die Administration aufzurufen, muss der Client die IP 1.1.1.2 - 1.1.1.10 haben.
+Zuerst muss das Interface über die http://1.1.1.1 aufgerufen werden.
+Die Administrator Oberfläche kann dann mit http://1.1.1.1/#/admin aufgerufen werden.
+Die Farbe des Interfaces kann geändert werden mit dem Befehl: darkadmin / whiteadmin
+
+=====================================================
+
+Die aktuellen Wünsche können jederzeit hier eingesehen werden:
+-> cat /screenlog.0
+
+=====================================================
+Datenbank Aktualisieren (Neue Songs hinzufügen):
+Anleitung anschauen mit -> cat /home/pi/importsongs.txt
+Wichtig: Dies kann bis zu 30-45 Minuten in Anspruch nehmen, je nach angeschlossener Festplatte. Nicht im Karaoke-Betrieb machen!
+
+=====================================================
+Die Festplatte startet automatisch die Verbindung der USB Festplatte mit dem Device /dev/sda2 zu dem Ordner /media/Kara/.
+Sollte eine andere Karaoke-Festplatte angeschlossen werden, so muss bei jedem Neustart, die Platte per Hand gemountet werden:
+-> /home/pi/ManualMount 
+
+Für das permanente Mounten einer anderen Festplatte bitte Niklas fragen.
+=====================================================
+
+Support-Kontakt:
+Niklas Paul - 040 95004062 (Mobile Festnetznummer)
+niklas.paul@gwentertainment.de (Email)
+
+Das Karaoke-System startet nur mit einer gültigen Lizenz
+Lizenz-File: /home/pi/license.txt
+=====================================================
+
+
+
+

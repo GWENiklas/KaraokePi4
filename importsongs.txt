@@ -5,13 +5,13 @@ Datenbank Aktualisieren (Neue Songs hinzufügen):
 !! Nicht im Karaoke Betrieb durchführen !!
 !! Die Wunschliste ist daraufhin fehlerhaft, da neue IDs generiert werden !!
 
-1 |  Songs irgendwo unter /media/Kara/NewSongs/ einfügen (Nur MP4 Videos!)
+1 |  Songs irgendwo unter /media/Kara/ einfügen
 2 | >>  cd /media/Kara/
 3 | >>  ./createSongList
 4 |  Abwarten bis die Songliste erstellt wird (Dauer ca. 60 Min.)
 5 |  Das Script legt die Datenbank-Datei ab. Sie liegt nun unter: /media/Kara/songLists/song_list.csv
 6 |  >> mysql -u root -p
-7 |  Passwort: midako1
+7 |  Passwort: karaoke
 8 |  >> use conka;
 9 | >> delete from songs;
 10 | Dateinamen in den unteren Befehl einfügen
