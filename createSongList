@@ -1,0 +1,12 @@
+#!/bin/bash
+songList=song_list.csv
+songListLength=0
+echo "Create song list start"
+find "$PWD" -name '*.[Aa][Vv][Ii]' -or -name '*.[Mm][Pp]4' -or -name '*.[Mm][Kk][Vv]' | ( while read FILE
+    do
+	let songListLength++;
+    songDuration=`ffmpeg -i "$FILE" 2>&1 | grep Duration | awk '{print $2}' | tr -d ,`
+        echo \""`dirname "$FILE"`/"\":\""`basename "$FILE"`"\":\""$songDuration"\" >> "/media/Kara/songLists/"$songList
+    done
+echo "$songListLength songs added to $songList" )
+
