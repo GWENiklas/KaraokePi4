@@ -1,0 +1,72 @@
+<style>
+body {
+background-color: black;
+color: grey;
+}
+list-group-item {
+background-color: black;
+}
+list-group-item.ng-scope {
+    background-color: black;
+}
+.list-group-item.ng-scope {
+    background: black;
+}
+span.input-group-addon {
+background-color: black;
+}
+.navbar-default {
+    background-color: #120b35;
+    border-color: #e7e7e7;
+}
+</style>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+            	<a target="_blank" href="" class="navbar-brand"> <font color="white" size="3">Karaoke | Administrations Interface</font></a>
+		</div>
+        </div>
+</div>
+
+<br><br><br><br>
+	<div class="container ng-scope">
+        	Neuen Song hochladen und zur Datenbank hinzufügen:
+		<br> 
+		<form method='post' action='upload' enctype='multipart/form-data'> 
+        	<input type='file' name='fileUploaded'>
+		<input type='submit'>
+	</dív>
+<br><br><br><br>
+<div class="container ng-scope">
+	{{users | json}}
+				<td class="col-md-6">Aktueller Song, welcher wiedergegeben wird: <b>{{currentsong}}</b></td>
+				<br><td class="col-md-6">Anzahl an Songs in der Warteschleife:<b> {{songs.length}}</b></td>
+				<br><td class="col-md-6">Zeit, bis aktuell ein neuer Wunsch gespielt werden kann: <b>({{getReadableTime(fullTimeString)}})</b></td>
+				<br><br>
+	<div class="clearfix">	</div>
+	<div class="settings pull-left">
+		<label>Wunschliste aktiv: <input type="checkbox" ng-model="wishlist.active" data-ng-click="toggleWishlist()"></label>
+	</div>
+	<div class="clearfix"></div>
+
+    <div class="input-group input-group-lg">
+        <span style="cursor: pointer;" ng-click="pause()" class="input-group-addon"><span class="glyphicon glyphicon-pause"></span></span>
+		<span style="cursor: pointer;" ng-click="stop()" class="input-group-addon"><span class="glyphicon glyphicon-stop"></span></span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="list-group" data-show>
+        <div class="list-group-item" data-ng-repeat="song in songs track by song.ID">
+        	<button class="search-wish glyphicon glyphicon-trash" data-ng-click="deletesong(song)"></button>
+        	<button class="search-wish glyphicon glyphicon-play" data-ng-click="playsong(song)"></button>
+        	<span ng-style="song.wishes >= 3 && {'color': 'red'}">
+        		Platzierung: {{$index + 1}} <br> Name des Songs: {{song.datei}} <br> Pfad: {{song.pfad}}{{song.datei}} <br>Dieses Lied wurde sich gewünscht von: {{song.nickname}} (Hat aktuell: {{song.wishes}} Wünsche)<br>IP der Person: {{song.ip}} <br>Dauer des Liedes: {{getReadableTime(song.duration)}}
+        	</span>
+        </div>
+    </div>
+</div>
+
+<hr>
+<center>&copy; 2023 by Karim F. (Midako) & Niklas Paul </center>

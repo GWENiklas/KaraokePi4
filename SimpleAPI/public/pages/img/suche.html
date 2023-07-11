@@ -1,0 +1,55 @@
+ 
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a target="_blank" href="#" class="navbar-brand"> <font size="3">NipponCon 2017</font></a>
+          </div>
+        </div>
+      </div>
+      <br><br>
+<img src="img/nipponcon.jpg" width="352.5px" height="98.25px"/>
+      <br><br>
+<div class="container" data-ng-show="addwishmessage">
+    <div class="alert alert-success" role="alert" data-ng-bind="addwishmessage"></div>
+</div>
+<div class="container" data-ng-show="addwisherror">
+    <div class="alert alert-danger" role="alert" data-ng-bind="addwisherror"></div>
+</div>
+<div class="container">
+    <div class="input-group" style="width: 228px; margin-bottom: 20px;">
+        <input data-ng-model="user" type="text" class="form-control" placeholder="Dein Name" aria-describedby="sizing-addon1">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="input-group input-group-lg">
+        <input data-ng-model="keywords" type="text" class="form-control" placeholder="Titel, Anime oder Interpret eingeben" ng-enter="search()" aria-describedby="sizing-addon1">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-search" ng-click="search()"></span></span>
+    </div>
+</div>
+
+<!--<div class="container" ng-if="!error">-->
+    <!--<div class="list-group" data-show>-->
+        <!--<div class="list-group-item" data-ng-repeat="song in songs"><button class="search-wish glyphicon glyphicon-gift" data-ng-click="addwish(song)"></button><span class="datei" data-ng-bind="song.datei + ' (' + getReadableTime(song.duration) + ')'"></span></div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="container">
+    <table class="table custom-song-list">
+        <tbody>
+            <tr data-ng-repeat="song in songs track by song.id">
+                <td>
+                    <div data-ng-bind="song.datei"></div>
+                    <div>
+                        <span class="fa fa-clock-o" aria-hidden="true"></span>
+                        <span data-ng-bind="getReadableTime(song.duration)"></span>
+                    </div>
+                </td>
+                <td class="v-align">
+                    <button class="search-wish glyphicon glyphicon-gift" data-ng-click="addwish(song)"></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

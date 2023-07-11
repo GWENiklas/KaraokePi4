@@ -1,0 +1,15 @@
+{
+  "name": "conka",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Midako",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "connect-busboy": "0.0.2",
+    "express": "^4.13.4",
+    "ffmpeg": "0.0.4",
+    "mysql": "^2.11.1",
+    "omx-manager": "^0.1.3"
+  }
+}
