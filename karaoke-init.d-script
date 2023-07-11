@@ -1,0 +1,57 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          karaoke
+# Required-Start:    $start
+# Required-Stop:     $shutdown
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start Mount and Karaokesystem
+# Description:       Mounts usb hard drive and start a node application for karaoke
+### END INIT INFO
+
+start() {
+licensecheck=`/usr/share/Karaoke/CheckLicense.sh`
+license=`cat /home/pi/license.txt`
+
+if [ $licensecheck != $license ]
+then
+ wall "Lizenz nicht vorhanden! Bitte Support kontaktieren!"
+ sleep 30; wall "Lizenz nicht vorhanden!/Fehlerhaft Bitte Support kontaktieren!"
+ sleep 30; wall "Lizenz nicht vorhanden!/Fehlerhaft Bitte Support kontaktieren!"
+ sleep 30; wall "Lizenz nicht vorhanden/Fehlerhaft! Bitte Support kontaktieren!"
+ sleep 30; wall "Lizenz nicht vorhanden/Fehlerhaft! Bitte Support kontaktieren!"
+ sleep 30; wall "System fährt aufgrund fehlender/fehlerhafter Lizenz herunter!" 
+ logger "Lizenz nicht vorhanden! Bitte Support kontaktieren!" 
+ shutdown -h now
+ exit
+fi
+sleep 5
+mount -t ntfs-3g -o utf8,uid=pi,gid=pi,noatime /dev/sda1 /media/Kara
+export TERM=xterm
+sleep 5
+/usr/bin/clear > /dev/tty1
+/usr/bin/setterm -cursor off > /dev/tty1
+sed -i 's/geteuid/getppid/' /usr/bin/vlc
+screen -L -d -m node /home/pi/SimpleAPI/app.js >> /var/log/karaoke.log
+}
+
+stop() {
+killall screen
+killall mplay
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  retart)
+    stop
+    start
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart|uninstall}"
+esac
+
