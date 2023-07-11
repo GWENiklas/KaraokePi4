@@ -1,4 +1,9 @@
 #!/bin/bash
+rm /media/Kara/songLists/song_list-old.csv
+cp /media/Kara/songLists/song_list.csv /media/Kara/songLists/song_list-old.csv
+echo "Old database has been renamed to songlist-old.csv"
+rm /media/Kara/songLists/song_list.csv
+echo "Current index csv file has been removed"
 songList=song_list.csv
 songListLength=0
 echo "Create song list start"
@@ -7,6 +12,7 @@ find "$PWD" -name '*.[Aa][Vv][Ii]' -or -name '*.[Mm][Pp]4' -or -name '*.[Mm][Kk]
 	let songListLength++;
     songDuration=`ffmpeg -i "$FILE" 2>&1 | grep Duration | awk '{print $2}' | tr -d ,`
         echo \""`dirname "$FILE"`/"\":\""`basename "$FILE"`"\":\""$songDuration"\" >> "/media/Kara/songLists/"$songList
+	echo \""`dirname "$FILE"`/"\":\""`basename "$FILE"`"\":\""$songDuration"\" hinzugefügt
     done
 echo "$songListLength songs added to $songList" )
 
