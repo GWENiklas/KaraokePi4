@@ -10,8 +10,8 @@ exports.upload = function(req, res, next) {
     req.busboy.on('file', function (fieldname, file, filename) {
         //console.log("Uploading: " + filename);
         //console.log(getFileExtension(filename));
-        if (getFileExtension(filename) == "mp4" || getFileExtension(filename) == "avi"
-            || getFileExtension(filename) == "mkv") {
+        if (filename != '') {
+            if (getFileExtension(filename) == "mp4" || getFileExtension(filename) == "avi"|| getFileExtension(filename) == "mkv") {
                 
 
                 mysql.connection.query('SELECT * FROM conka.songs WHERE datei = ? AND pfad = ? AND active = 1', [filename, uploadPath], function(err, rows, fields) {
@@ -22,7 +22,9 @@ exports.upload = function(req, res, next) {
 
                         file.pipe(fstream);
                         fstream.on('close', function () { 
+                            
                             new ffmpeg(uploadPath + filename, function (err, video) {
+                                console.log(video);
                                 if (!err) {
                                 var duration = video.metadata.duration.raw
                                     mysql.connection.query('INSERT INTO conka.songs (pfad, datei, active, duration) VALUES (?, ?, 1, ?)', [uploadPath, filename, duration], function(err, rows, fields) {
@@ -38,8 +40,11 @@ exports.upload = function(req, res, next) {
                     }
                 })
             } else {
-                console.log("wrong file format!")
+                console.log('Die zu hochladene Datei ist kein avi/mp4/mkv.')
                 res.redirect('/#/admin');
             };
+        } else {
+            console.log('Das sollte nicht passieren, beeinträchtigt aber nichts');
+        }
     });
 };

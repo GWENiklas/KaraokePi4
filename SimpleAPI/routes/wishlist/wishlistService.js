@@ -28,11 +28,11 @@ exports.addWish = function(req, res) {
             } else {
                 mysql.connection.query('SELECT * FROM conka.wishlist2 WHERE active = 1 AND ip = ?', [req.connection.remoteAddress], function(err, rows, fields) {
                     if (err) res.send(err);
-                    if(rows.length >= 1 && (wishlistIps.indexOf(req.connection.remoteAddress) < 0 && ips.indexOf(req.connection.remoteAddress) < 0)) {
-                        console.log(req.body.nickname + ' hat sich ' + req.body.songId + ' gewünscht. Es ist nur ein Songwunsch möglich.');
+                    if(rows.length >= 2 && (wishlistIps.indexOf(req.connection.remoteAddress) < 0 && ips.indexOf(req.connection.remoteAddress) < 0)) {
+                        console.log(req.body.nickname + ' hat sich ' + req.body.songId + ' gewünscht. Es sind 2 Songwünsche pro Besucher gleichzeitig möglich.');
                         res.send({
                             status: 'wishFail',
-                            text: 'Sie können sich nur einen Song wünschen. Nach dem Sie Ihren ersten Song gesungen haben können Sie sich erneut einen Song wünschen!'
+                            text: 'Sie können sich nur zwei Songs wünschen. Nach dem Sie Ihren ersten Song gesungen haben können Sie sich erneut einen Song wünschen!'
                         })
                     } else {
                         console.log(req.body.nickname + ' hat sich ' + req.body.songId + ' gewünscht');

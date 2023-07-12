@@ -122,7 +122,7 @@ function AdminCtrl($scope, $http, $interval, Utils) {
     $scope.playsong = function (song) {
         var pfad = song.pfad,
             title = song.datei;
-
+            console.log(song)
         $http({
             method: 'GET',
             url: '/player/play/' + song.id
@@ -154,10 +154,7 @@ function AdminCtrl($scope, $http, $interval, Utils) {
 
     $scope.pause = function () {
         var isPause = confirm('Pause');
-        if (isPause) {
-            $http.get('/player/pause').success(function () {
-            })
-        }
+            $http.get('/player/pause').success(function () { });
     };
 
     $scope.stop = function () {
