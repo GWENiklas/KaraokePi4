@@ -9,7 +9,9 @@
     "connect-busboy": "0.0.2",
     "express": "^4.13.4",
     "ffmpeg": "0.0.4",
+    "media-player-controller": "^1.5.3",
     "mysql": "^2.11.1",
-    "omx-manager": "^0.1.3"
+    "omx-manager": "^0.1.3",
+    "vlconductor": "^0.4.5"
   }
 }

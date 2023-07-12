@@ -7,8 +7,6 @@ var https = require('https');
 global.fs = require('fs');
 global.ffmpeg = require('ffmpeg')
 
-
-
 //var allowCrossDomain = function(req,res, next) {
 //    res.header('Access-Control-Allow-Origin', '1.1.1.2');
 //    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
