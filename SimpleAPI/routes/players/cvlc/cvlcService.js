@@ -7,6 +7,7 @@ var exec = require('child_process').exec;
     mysql.connection.query('SELECT * FROM conka.songs WHERE id = ' + req.params.id, function(err, rows, fields) {
         if (err) res.send(err);
         if (rows.length > 0) {
+	  exec('pkill -9 vlc');
           exec('cvlc "'+ rows[0].pfad + rows[0].datei +'" --no-video-title vlc://quit');
             //console.log('>>>>');
             //console.log(rows);
