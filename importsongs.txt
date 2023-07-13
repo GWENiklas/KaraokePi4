@@ -15,7 +15,7 @@ Datenbank Aktualisieren (Neue Songs hinzufügen):
 8 |  >> use conka;
 9 | >> delete from songs;
 10 | Dateinamen in den unteren Befehl einfügen
-11 | >> LOAD DATA INFILE '/media/Kara/songLists/song_list.csv' INTO TABLE conka.songs CHARACTER SET UTF8 FIELDS TERMINATED BY ':' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 0 ROWS (pfad, datei, duration);
+11 | >> LOAD DATA LOCAL INFILE '/media/Kara/songLists/song_list.csv' INTO TABLE conka.songs CHARACTER SET UTF8 FIELDS TERMINATED BY ':' ENCLOSED BY '"' LINES TERMINATED BY '\n' IGNORE 0 ROWS (pfad, datei, duration);
 12 | >> delete from wishlist2;
 13 | >> exit;
 
