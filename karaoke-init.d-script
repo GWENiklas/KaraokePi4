@@ -32,7 +32,7 @@ sleep 5
 /usr/bin/clear > /dev/tty1
 /usr/bin/setterm -cursor off > /dev/tty1
 sed -i 's/geteuid/getppid/' /usr/bin/vlc
-screen -L -d -m node /home/pi/SimpleAPI/app.js >> /var/log/karaoke.log
+screen -L -d -m node --no-deprecation /home/pi/SimpleAPI/app.js >> /var/log/karaoke.log
 }
 
 stop() {
