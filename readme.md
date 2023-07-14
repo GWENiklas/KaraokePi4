@@ -34,5 +34,5 @@ Installation des Systems:<br>
 - Beim Hochladen von Songs über die Administrations Seite wird die länge des Liedes durch ffmpeg nicht ermittelt, wenn sich ein Leerzeichen im Namen befindet. Hierzu muss wohl ein neues ffmpeg modul installiert werden.<br>
 - Das System stürtzt nach 24 Stunden ungefähr ab. Hierzu prüfen wir aktuell die nodejs Fehlerausgabe.<br>
 <br>
-<b>Gewünschte Funktionen:</b<br><br>
+<b>Gewünschte Funktionen:</b><br><br>
 - Werden in Zukunft besprochen.
