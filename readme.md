@@ -5,7 +5,7 @@ Willkommen zum Github-Repository des Conka Karaoke Systems.<br>
 Das System ist auf einem Raspberry Pi 3 entstanden, um Karaoke Songs von einer Festplatte zu scannen und in eine Datenbank zu laden.<br>
 Diese wird wiederum von dem SimpleAPI NodeJS Programm genutzt, um eine Songsuche, sowie eine Administrationsseite zur verfügung zu stellen, um auf Events das Karaoke zu steuern.<br>
 Das System nutzt dazu den mplayer / omxplayer des Raspberrys. Da dieser nicht mehr weiterentwickelt wird, ist dieses Repository eine Entwicklungsumgebung, um zu einem neueren Player zu wechseln.<br>
-Geplant ist die migration von omxplayer zu cvlc (VLC Player).<br>
+Das System nutzt nun den VLC Player um auch neuere Videos abzuspielen.<br>
 <br>
 Das System lässt sich mit node /home/pi/SimpleAPI/app.js starten.<br>
 Die Ports 80 und 443 müssen dazu verfügbar sein.<br>
@@ -29,3 +29,9 @@ Installation des Systems:<br>
 12. Öffnen der Admin Seite unter http://IP/#/admin<br>
 <br>
 
+<b>Bekannte Bugs:</b><br>
+- Beim Hochladen von Songs über die Administrations Seite wird die länge des Liedes durch ffmpeg nicht ermittelt, wenn sich ein Leerzeichen im Namen befindet. Hierzu muss wohl ein neues ffmpeg modul installiert werden.<br>
+- Das System stürtzt nach 24 Stunden ungefähr ab. Hierzu prüfen wir aktuell die nodejs Fehlerausgabe.<br>
+<br>
+<b>Gewünschte Funktionen:</b<br>
+- Werden in Zukunft besprochen.
