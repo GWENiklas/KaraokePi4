@@ -10,7 +10,7 @@ Das System nutzt nun den VLC Player um auch neuere Videos abzuspielen.<br>
 <br>
 Das System lässt sich mit node /home/pi/SimpleAPI/app.js starten.<br>
 Die Ports 80 und 443 müssen dazu verfügbar sein.<br>
-Die Karaoke Lieder liegen unter <b>/media/Kara</b><br>
+Die Karaoke Lieder liegen unter <b>/media/Kara/</b><br>
 Die Datenbank heißt conka und hat den Login root/karaoke unter localhost.<br>
 <br>
 <br>
