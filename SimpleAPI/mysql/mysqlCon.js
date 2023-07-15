@@ -1,5 +1,5 @@
 var mysql = require("mysql");
-exports.connection = mysql.createConnection({
+exports.connection = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'karaoke'
