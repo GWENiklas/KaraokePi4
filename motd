@@ -48,7 +48,7 @@ Sollte eine andere Karaoke-Festplatte angeschlossen werden, so muss bei jedem Ne
 -> /home/pi/ManualMount 
 
 Danach einmal prüfen, ob unter /media/Kara/ die Songs zu sehen sind.
-Das System muss dann manuell mit node /home/pi/SimpleAPI/app.js gestartet werden.
+Das System muss dann manuell mit "screen node /home/pi/SimpleAPI/app.js" gestartet werden.
 Mit STRG + A + D verlässt man die Screen-Session, mit screen -x kommt man wieder in diese rein.
 
 Für das permanente Mounten einer anderen Festplatte bitte Niklas fragen.
