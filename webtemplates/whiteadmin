@@ -42,7 +42,7 @@
         	<button class="search-wish glyphicon glyphicon-trash" data-ng-click="deletesong(song)"></button>
         	<button class="search-wish glyphicon glyphicon-play" data-ng-click="playsong(song)"></button>
                 	<span ng-style="song.wishes >= 3 && {'color': 'red'}">
-			Platzierung: {{$index + 1}} <br> Name des Songs: {{song.datei}} <br> Dieses Lied wurde sich gewünscht von: {{song.nickname}} (Hat aktuell: {{song.wishes}} Wünsche)<br>IP der Person: {{song.ip}} <br>Dauer des Liedes: {{getReadableTime(song.duration)}} <br> Manuelles starten:<b> cvlc "{{song.pfad}}{{song.datei}}" --no-video-title vlc://quit
+			Platzierung: {{$index + 1}} <br> Name des Songs: {{song.datei}} <br> Dieses Lied wurde sich gewünscht von: <b>{{song.nickname}}</b> (Hat aktuell: {{song.wishes}} Wünsche)<br>IP der Person: {{song.ip}} <br>Dauer des Liedes: {{getReadableTime(song.duration)}} <br> Manuelles starten:<b> cvlc "{{song.pfad}}{{song.datei}}" --no-video-title vlc://quit
         	</span>
 	</div>
     </div>
