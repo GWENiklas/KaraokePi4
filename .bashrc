@@ -19,9 +19,9 @@
 alias mplay='omxplayer -o both'
 alias getDrives='sudo blkid -o list -w /dev/null'
 alias mountDrive='sudo mount -t ntfs-3g -o utf8,uid=pi,gid=pi,noatime'
-removeIP() { mysql -u root -pkaraoke conka -e "DELETE FROM allowed_ips WHERE ip=\"$1\""; }
+removeIP() { mysql -u root -pkaraoke conka -e "DELETE FROM allowed_ips WHERE ip=\"\::ffff:$1\""; }
 getIPS() { mysql -u root -pkaraoke conka -e 'SELECT * FROM allowed_ips'; }
-addIP() { mysql -u root -pkaraoke conka -e "INSERT INTO allowed_ips (ip, bypass) VALUES(\"$1\", \"all\")"; }
+addIP() { mysql -u root -pkaraoke conka -e "INSERT INTO allowed_ips (ip, bypass) VALUES(\"::ffff:$1\", \"all\")"; }
 alias chisaii='cp /home/pi/webtemplates/chisaii /home/pi/SimpleAPI/public/pages/suche.html'
 alias kiai='cp /home/pi/webtemplates/kiai /home/pi/SimpleAPI/public/pages/suche.html'
 alias ohana='cp /home/pi/webtemplates/ohana /home/pi/SimpleAPI/public/pages/suche.html'
