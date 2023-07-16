@@ -20,13 +20,20 @@ Sollte sich das System aus unbestimmten Gründen aufhängen:
 -> systemctl stop karaoke
 -> systemctl start karaoke
 
-Um die Administration aufzurufen, muss der Client die IP 1.1.1.2 - 1.1.1.10 haben.
-Zuerst muss das Interface über die http://1.1.1.1 aufgerufen werden.
-Die Administrator Oberfläche kann dann mit http://1.1.1.1/#/admin aufgerufen werden.
+Um das Administrations-Interface aufzurufen, muss der Client mit dem Befehl "adminanlernen" angelernt werden.
+Danach muss der Client die Suche über die http://<IP-des-Systems> aufrufen.
+Sobald dies geschehen ist, kann das jeweilige Template wieder gesetzt werden.
+Die Administrator Oberfläche kann dann mit http://<IP-des-Systems>/#/admin aufgerufen werden.
 Die Farbe des Interfaces kann geändert werden mit dem Befehl: darkadmin / whiteadmin
 
 =====================================================
+Folgende Befehle sind für Clients mit unendlichen Wünschen erstellt worden:
 
+addIP <IPAdresse> | Für das hinzufügen einer IP zu der Wunsch-Whitelist.
+removeIP <IPAdresse> | Entfernt man die IP aus der Wunsch-Whitelist.
+getIPS | Zeigt alle IP's an, welche für unendliche Wünsche gewhitelisted sind.
+
+=====================================================
 Die aktuellen Wünsche können jederzeit hier eingesehen werden:
 -> cat /screenlog.0
 
@@ -41,8 +48,8 @@ Sollte eine andere Karaoke-Festplatte angeschlossen werden, so muss bei jedem Ne
 -> /home/pi/ManualMount 
 
 Für das permanente Mounten einer anderen Festplatte bitte Niklas fragen.
-=====================================================
 
+=====================================================
 Support-Kontakt:
 Niklas Paul - 040 95004062 (Mobile Festnetznummer)
 niklas.paul@gwentertainment.de (Email)
