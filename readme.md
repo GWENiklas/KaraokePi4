@@ -34,6 +34,7 @@ Installation des Systems:<br>
 - Beim Hochladen von Songs über die Administrations Seite wird die länge des Liedes durch ffmpeg nicht ermittelt, wenn sich ein Leerzeichen im Namen befindet. Hierzu muss wohl ein neues ffmpeg modul installiert werden.<br>
 - Veraltete motd bezüglich Whitelist IP<br>
 - removeIP funktioniert nicht<br>
+- ::ffff: muss noch eingefügt werden<br>
 <br>
 <b>Gewünschte Funktionen:</b><br><br>
 - Dunkles Wunschinterface
