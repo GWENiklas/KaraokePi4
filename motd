@@ -43,9 +43,13 @@ Anleitung anschauen mit -> cat /home/pi/importsongs.txt
 Wichtig: Dies kann bis zu 30-45 Minuten in Anspruch nehmen, je nach angeschlossener Festplatte. Nicht im Karaoke-Betrieb machen!
 
 =====================================================
-Die Festplatte startet automatisch die Verbindung der USB Festplatte mit dem Device /dev/sda2 zu dem Ordner /media/Kara/.
+Das System startet automatisch die Verbindung der USB Festplatte mit dem Device /dev/sda1 zu dem Ordner /media/Kara/.
 Sollte eine andere Karaoke-Festplatte angeschlossen werden, so muss bei jedem Neustart, die Platte per Hand gemountet werden:
 -> /home/pi/ManualMount 
+
+Danach einmal prüfen, ob unter /media/Kara/ die Songs zu sehen sind.
+Das System muss dann manuell mit node /home/pi/SimpleAPI/app.js gestartet werden.
+Mit STRG + A + D verlässt man die Screen-Session, mit screen -x kommt man wieder in diese rein.
 
 Für das permanente Mounten einer anderen Festplatte bitte Niklas fragen.
 
@@ -56,8 +60,3 @@ niklas.paul@gwentertainment.de (Email)
 
 Das Karaoke-System startet nur mit einer gültigen Lizenz
 Lizenz-File: /home/pi/license.txt
-=====================================================
-
-
-
-
