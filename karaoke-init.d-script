@@ -36,8 +36,8 @@ screen -L -d -m node --no-deprecation /home/pi/SimpleAPI/app.js >> /var/log/kara
 }
 
 stop() {
-killall screen
-killall mplay
+pkill -9 screen
+pkill -9 vlc
 }
 
 case "$1" in
