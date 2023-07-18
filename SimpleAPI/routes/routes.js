@@ -8,11 +8,11 @@ var appRouter = function(app) {
     playersController(app);
     wishlistController(app);
     settingsController(app);
-    shutdownController(app);
+    //shutdownController(app);
     uploadController(app);
 };
 
 module.exports = appRouter;
 
-# Shutdown per URL deaktiviert, solange keine Sicherheitsmechanismen aktiv.
-# var shutdownController = require('./shutdown/shutdown.js');
+// Shutdown per URL deaktiviert, solange keine Sicherheitsmechanismen aktiv.
+// var shutdownController = require('./shutdown/shutdown.js');
