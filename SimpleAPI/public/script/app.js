@@ -23,14 +23,6 @@ conka.config(function ($stateProvider, $urlRouterProvider) {
             controller: 'AdminCtrl',
             resolve: {
                 user: function($state, $timeout) {
-                    var user = localStorage.getItem('user');
-                    if(!user) {
-                        //console.log('Please login as Admin');
-                        $timeout(function() {
-                            $state.go('suche');
-                        });
-                        return false;
-                    }
                     return true
                 }
             }
