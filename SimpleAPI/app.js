@@ -4,6 +4,7 @@ var busboy = require('connect-busboy'); //middleware for form/file upload
 var bodyParser = require("body-parser");
 var app = express();
 var https = require('https');
+var passport = require('passport')
 global.fs = require('fs');
 global.ffmpeg = require('ffmpeg')
 
@@ -23,6 +24,9 @@ app.use(function(req, res, next) {
     next();
 });
 app.use(busboy());
+app.use(require('express-session')({ secret: 'Sushicat', resave: true, saveUninitilized:true}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 var options = {
   //key: fs.readFileSync('/root/key.pem'),
