@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
     next();
 });
 app.use(busboy());
-app.use(require('express-session')({ secret: 'Sushicat', resave: true, saveUninitialized: true}));
+app.use(require('express-session')({ secret: '4spiafdG4RUphSyT0tMDLHj0WFk', resave: true, saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
