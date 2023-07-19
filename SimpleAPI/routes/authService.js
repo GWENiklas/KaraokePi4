@@ -1,10 +1,8 @@
 var passport = require('passport')
 var DigestStrategy = require('passport-http').DigestStrategy;
+var fs = require('fs');
 
-var users = [
-  { id: 1, username: 'admin', password: 'karaoke123', realm: 'Admin' },
-  { id: 2, username: 'admin2', password: 'karaoke123', realm: 'Admin' }
-];
+var users = JSON.parse(fs.readFileSync('./admins.json', 'utf8'));
 
 passport.use(new DigestStrategy({ qop: 'auth' },
   (username, done) => {
