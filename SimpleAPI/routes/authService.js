@@ -2,7 +2,7 @@ var passport = require('passport')
 var DigestStrategy = require('passport-http').DigestStrategy;
 var fs = require('fs');
 
-var users = JSON.parse(fs.readFileSync('./admins.json', 'utf8'));
+var users = JSON.parse(fs.readFileSync('/home/pi/SimpleAPI/admins.json', 'utf8'));
 
 passport.use(new DigestStrategy({ qop: 'auth' },
   (username, done) => {
