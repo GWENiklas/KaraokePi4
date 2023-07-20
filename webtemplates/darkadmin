@@ -36,6 +36,7 @@ background-color: black;
 		<form method='post' action='upload' enctype='multipart/form-data'> 
         	<input type='file' name='fileUploaded'>
 		<input type='submit'>
+		</form>
 	</dív>
 <br><br><br><br>
 <div class="container ng-scope">
