@@ -1,3 +1,25 @@
+<style>
+body {
+background-color: black;
+color: grey;
+}
+list-group-item {
+background-color: black;
+}
+list-group-item.ng-scope {
+    background-color: black;
+}
+.list-group-item.ng-scope {
+    background: black;
+}
+span.input-group-addon {
+background-color: black;
+}
+.navbar-default {
+    background-color: #120b35;
+    border-color: #e7e7e7;
+}
+</style>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
@@ -14,11 +36,8 @@
 		<form method='post' action='upload' enctype='multipart/form-data'> 
         	<input type='file' name='fileUploaded'>
 		<input type='submit'>
-		</form>
 	</dív>
-
-<br><br>
-
+<br><br><br><br>
 <div class="container ng-scope">
 	{{users | json}}
 				<td class="col-md-6">Aktueller Song, welcher wiedergegeben wird: <b>{{currentsong}}</b></td>
@@ -43,7 +62,7 @@
         	<button class="search-wish glyphicon glyphicon-trash" data-ng-click="deletesong(song)"></button>
         	<button class="search-wish glyphicon glyphicon-play" data-ng-click="playsong(song)"></button>
                 	<span ng-style="song.wishes >= 3 && {'color': 'red'}">
-			Platzierung: {{$index + 1}} <br> Name des Songs: {{song.datei}} <br> Dieses Lied wurde sich gewünscht von: {{song.nickname}} (Hat aktuell: {{song.wishes}} Wünsche)<br>IP der Person: {{song.ip}} <br>Dauer des Liedes: {{getReadableTime(song.duration)}} <br> Pfad: "{{song.pfad}}{{song.datei}}"
+			Platzierung: {{$index + 1}} <br> Name des Songs: {{song.datei}} <br> Dieses Lied wurde sich gewünscht von: <b>{{song.nickname}}</b> (Hat aktuell: {{song.wishes}} Wünsche)<br>IP der Person: {{song.ip}} <br>Dauer des Liedes: {{getReadableTime(song.duration)}} <br> Pfad:{{song.pfad}}{{song.datei}}
         	</span>
 	</div>
     </div>
