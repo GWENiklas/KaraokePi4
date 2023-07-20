@@ -3,6 +3,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var http = require('http');
 var https = require('https');
+var passport = require('passport')
 var fs = require('fs');
 var app = express();
 
@@ -26,6 +27,9 @@ app.use(function(req, res, next) {
     res.setHeader('charset', 'utf-8');
     next();
 });
+app.use(require('express-session')({ secret: '4spiafdG4RUphSyT0tMDLHj0WFk', resave: true, saveUninitialized: true}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 var routes = require("./routes/routes.js")(app);
 app.use(express.static(__dirname + '/public'));
