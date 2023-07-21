@@ -45,6 +45,7 @@ exports.upload = function(req, res, next) {
             };
         } else {
             console.log('Das sollte nicht passieren, beeinträchtigt aber nichts');
+			res.status(204).end();
         }
     });
 };

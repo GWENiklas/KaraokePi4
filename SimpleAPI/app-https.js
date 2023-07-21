@@ -1,11 +1,13 @@
 global.mysql = require('./mysql/mysqlCon.js');
 var express = require("express");
 var bodyParser = require("body-parser");
+var busboy = require('connect-busboy');
 var http = require('http');
 var https = require('https');
 var passport = require('passport')
-var fs = require('fs');
 var app = express();
+global.fs = require('fs');
+global.ffmpeg = require('ffmpeg')
 
 var options = {
   key: fs.readFileSync('/etc/letsencrypt/live/karaoke.veranstaltungsurl.de/privkey.pem'),
@@ -27,6 +29,7 @@ app.use(function(req, res, next) {
     res.setHeader('charset', 'utf-8');
     next();
 });
+app.use(busboy());
 app.use(require('express-session')({ secret: '4spiafdG4RUphSyT0tMDLHj0WFk', resave: true, saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
