@@ -16,3 +16,23 @@ find "$PWD" -name '*.[Aa][Vv][Ii]' -or -name '*.[Mm][Pp]4' -or -name '*.[Mm][Kk]
     done
 echo "$songListLength songs added to $songList" )
 
+
+
+
+
+
+==============
+DELTA ZU KOE
+==============
+#!/bin/bash
+songList=song_list_`date +"%F_%H-%M-%S"`.csv
+songListLength=0
+echo "Create song list start"
+find "$PWD" -iname '*.avi' -or -iname '*.mp4' -or -iname '*.mkv'| ( while read FILE
+    do
+	let songListLength++;
+    songDuration=`ffmpeg -i "$FILE" 2>&1 | grep Duration | awk '{print $2}' | tr -d ,`
+        echo \""`dirname "$FILE"`/"\":\""`basename "$FILE"`"\":\""$songDuration"\" >> "/home/pi/songList/"$songList
+    done
+echo "$songListLength songs added to $songList" )
+
