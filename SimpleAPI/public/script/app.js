@@ -22,9 +22,14 @@ conka.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: "pages/admin.html",
             controller: 'AdminCtrl',
             resolve: {
-                user: function($state, $timeout) {
-                    return true
-                }
+                user: function($state, $http) {
+						return $http.get('/admin')
+							.success(function (data, status) {
+								return true;
+							})
+							.error(function (data, status, headers, config) {
+							});
+						}
             }
         });
 });
@@ -47,7 +52,13 @@ function MainCtrl($state, $scope) {
     $scope.state = $state;
 }
 
-function AdminCtrl($scope, $http, $interval, Utils) {
+function AdminCtrl($scope, $http, $interval, Utils, user) {
+	console.log(user);
+	if (user) {
+		$scope.isLoggedIn = true;
+	} else {
+		$scope.isLoggedIn = false;
+	}
     $scope.getReadableTime = Utils.getReadableTime;
     $scope.sortedSongList = [];
     $scope.getSongs = function () {
