@@ -8,7 +8,7 @@ var exec = require('child_process').exec;
         if (err) res.send(err);
         if (rows.length > 0) {
 	  exec('pkill -9 vlc');
-          exec('cvlc "'+ rows[0].pfad + rows[0].datei +'" --no-video-title vlc://quit');
+          exec('sleep 1 && cvlc "'+ rows[0].pfad + rows[0].datei +'" --no-video-title vlc://quit');
             //console.log('>>>>');
             //console.log(rows);
             
