@@ -15,7 +15,7 @@ conka.config(function ($stateProvider, $urlRouterProvider) {
         .state('wunschliste', {
             url: "/wunschliste",
             templateUrl: "pages/wunschliste.html",
-            controller: 'AdminCtrl'
+            controller: 'WishlistCtrl'
         })
         .state('admin', {
             url: "/admin",
@@ -194,6 +194,54 @@ function AdminCtrl($scope, $http, $interval, Utils, user) {
 
                 });
         }
+    }
+}
+
+function WishlistCtrl($scope, $http, $interval, Utils) {
+    $scope.getReadableTime = Utils.getReadableTime;
+    $scope.sortedSongList = [];
+    $scope.getSongs = function () {
+        $http.get('/wishlist')
+            .success(function (data, status) {
+                $scope.status = status;
+                $scope.songs = data;
+		var filteredSongList = getFilteredListWithoutDeletedElements($scope.sortedSongList, $scope.songs);
+		var newSongs = getNewSongsForFilteredList(filteredSongList, $scope.songs);
+		$scope.sortedSongList = filteredSongList.concat(newSongs);
+		//console.log($scope.sortedSongList);
+                var seconds = 0;
+                $scope.fullTimeString = '';
+                $scope.songs.map(function(song) {
+                   seconds = (seconds + parseInt(Utils.getSecondsFromTime(song.duration)));
+                });
+                $scope.fullTimeString = Utils.getTimeFromSeconds(seconds);
+//                console.log($scope.fullTimeString);
+            })
+            .error(function (data, status) {
+                $scope.data = "Request failed";
+                $scope.status = status;
+            });
+    };
+
+    $scope.getSongs();
+    $interval($scope.getSongs, 1000);
+
+    function getFilteredListWithoutDeletedElements(filteredSongList, songList) {
+        return filteredSongList.filter(function(filteredSong) {
+	    var array = songList.filter(function(song) {
+			    return song.id == filteredSong.id;
+			});
+	    return array.length == 1;
+	});
+    }
+
+    function getNewSongsForFilteredList(filteredSongList, songList) {
+	     return songList.filter(function(song) {
+		var array = filteredSongList.filter(function(filteredSong) {
+				return song.id == filteredSong.id;
+			    });
+		return array.length == 0;
+         });
     }
 }
 
