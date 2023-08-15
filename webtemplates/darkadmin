@@ -21,7 +21,7 @@ background-color: black;
 }
 </style>
 
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div ng-if="isLoggedIn" class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
             	<a target="_blank" href="" class="navbar-brand"> <font color="white" size="3">Karaoke | Administrations Interface</font></a>
@@ -30,7 +30,7 @@ background-color: black;
 </div>
 
 <br><br><br><br>
-	<div class="container ng-scope">
+	<div ng-if="isLoggedIn" class="container ng-scope">
         	Neuen Song hochladen und zur Datenbank hinzufügen:
 		<br> 
 		<form method='post' action='upload' enctype='multipart/form-data'> 
@@ -39,7 +39,7 @@ background-color: black;
 		</form>
 	</dív>
 <br><br><br><br>
-<div class="container ng-scope">
+<div ng-if="isLoggedIn" class="container ng-scope">
 	{{users | json}}
 				<td class="col-md-6">Aktueller Song, welcher wiedergegeben wird: <b>{{currentsong}}</b></td>
 				<br><td class="col-md-6">Anzahl an Songs in der Warteschleife:<b> {{songs.length}}</b></td>
@@ -57,7 +57,7 @@ background-color: black;
     </div>
 </div>
 
-<div class="container">
+<div ng-if="isLoggedIn" class="container">
     <div class="list-group" data-show>
         <div class="list-group-item" data-ng-repeat="song in songs track by song.ID">
         	<button class="search-wish glyphicon glyphicon-trash" data-ng-click="deletesong(song)"></button>
