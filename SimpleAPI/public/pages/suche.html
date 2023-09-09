@@ -16,6 +16,9 @@
       <ul class="nav navbar-nav">
         <li><a href="#/suche"><font color="white" size="3">Song wünschen</font><span class="sr-only">(current)</span></a></li>
       </ul>
+      <ul class="nav navbar-nav">
+        <li><a href='javascript:darkmode()'><font color="white" size="3">Darkmode</font><span class="sr-only">(current)</span></a></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#/wunschliste"><font color="white" size="3">Aktuelle Wünsche</font></a></li>
       </ul>
@@ -24,7 +27,7 @@
 </nav>
 
 <br><br><br><br>
-<center><img src="img/Ohana.png"/></center>
+<center><img  id="logo" src="img/kiai.png"/></center>
       <br><br>
 <div class="container" data-ng-show="addwishmessage">
     <div class="alert alert-success" role="alert" data-ng-bind="addwishmessage"></div>
@@ -46,6 +49,10 @@
     </div>
 </div>
 <script>
+function darkmode() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}
 </script>
 <!--<div class="container" ng-if="!error">-->
     <!--<div class="list-group" data-show>-->
